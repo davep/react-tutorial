@@ -13,6 +13,14 @@ ol, ul {
   display: table;
 }
 
+button {
+    cursor: pointer;
+}
+
+button:hover {
+    background: #eee;
+}
+
 .status {
   margin-bottom: 10px;
 }
