@@ -38,7 +38,14 @@ button:hover {
   padding: 0;
   text-align: center;
   width: 170px;
-  cursor: pointer;
+}
+
+.square.empty {
+    cursor: pointer;
+}
+
+.square.filled {
+    cursor: not-allowed;
 }
 
 .square:focus {
