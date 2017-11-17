@@ -37,6 +37,10 @@ ol, ul {
   outline: none;
 }
 
+.square:hover {
+    background: #eee;
+}
+
 .kbd-navigation .square:focus {
   background: #ddd;
 }
