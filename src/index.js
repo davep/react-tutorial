@@ -10,33 +10,25 @@ function Square( props ) {
     );
 }
 
-class Board extends React.Component {
+function Row( props ) {
 
-    renderSquare(i) {
-        return <Square value={this.props.squares[ i ]} onClick={() => this.props.onClick( i )} />;
-    }
+    const fromTo = ( low, high ) => Array( high + 1 ).fill( 0 ).map( ( _, i ) => i ).slice( low, high + 1 );
 
-    render() {
-        return (
-            <div>
-              <div className="board-row">
-                {this.renderSquare(0)}
-                {this.renderSquare(1)}
-                {this.renderSquare(2)}
-              </div>
-              <div className="board-row">
-                {this.renderSquare(3)}
-                {this.renderSquare(4)}
-                {this.renderSquare(5)}
-              </div>
-              <div className="board-row">
-                {this.renderSquare(6)}
-                {this.renderSquare(7)}
-                {this.renderSquare(8)}
-              </div>
-            </div>
-        );
-    }
+    return (
+        <div className="board-row">
+          {fromTo( props.from, props.to).map( i => <Square value={props.squares[ i ]} onClick={() => props.onClick( i )} />)}
+        </div>
+    );
+}
+
+function Board( props ) {
+    return (
+        <div>
+          <Row from={0} to={2} squares={props.squares} onClick={props.onClick} />
+          <Row from={3} to={5} squares={props.squares} onClick={props.onClick} />
+          <Row from={6} to={8} squares={props.squares} onClick={props.onClick} />
+        </div>
+    );
 }
 
 class Game extends React.Component {
